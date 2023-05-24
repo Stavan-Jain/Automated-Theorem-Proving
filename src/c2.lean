@@ -19,5 +19,19 @@ begin
   have l := j uba, 
   linarith, 
 end 
+theorem challenge2_2 (S : set ℝ) (a b : ℝ) (ha : is_lub S a) (hb : is_lub S b) : a = b :=
+begin
+  unfold is_lub at ha,
+  unfold is_lub at hb,  
+
+  cases ha with ha1 ha2, 
+  cases hb with hb1 hb2, 
+  apply le_antisymm,  
+  {apply ha2, 
+  exact hb1,  }, 
+
+  {apply hb2, 
+  exact ha1, }
+end
 
 end challenges
