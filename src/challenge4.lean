@@ -12,3 +12,13 @@ begin
   use f a, 
   exact gfa, 
 end
+
+theorem challenge4_2 (X Y Z : Type) (f : X → Y) (g : Y → Z) : surjective (g ∘ f) → surjective g :=
+begin
+  intro h, 
+  intro z, 
+  unfold surjective at h, 
+  cases h z with a gfa, 
+  use f a, 
+  assumption, 
+end
